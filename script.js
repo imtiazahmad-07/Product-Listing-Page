@@ -3,13 +3,13 @@ let CategoryListDiv = document.querySelector(".CategoryList")
 
 
 let displayproduct= async (allCheckCat=[])=>{
-    productDiv.innerHTML = "";
-      
+    productDiv.innerHTML = " ";
+    console.log(allCheckCat)
     let allCat = [];        //an empty array
     let product = await fetch("https://fakestoreapi.com/products");
     let finalproduct = await product.json();        //20 Data elements
     finalproduct.forEach(element => {
-        console.log(allCheckCat)
+        
         //Category Data
         if(!allCat.includes(element.category)){
                 
@@ -25,7 +25,7 @@ let displayproduct= async (allCheckCat=[])=>{
         if(allCheckCat.includes(element.category))
         {
         //Product Data
-        productDiv.innerHTML += ` <div class="productItems">
+        productDiv.innerHTML += `<div class="productItems">
                 <img src="${element.image}" alt="">
                 <h4>${element.category}</h4>
                 <p>Price Rs ${element.price} | ${element.rating["rate"]}</p>
