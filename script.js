@@ -5,14 +5,17 @@ let CategoryListDiv = document.querySelector(".CategoryList")
 let displayproduct= async (allCheckCat=[])=>{
     productDiv.innerHTML = " ";
     console.log(allCheckCat)
-    let allCat = [];        //an empty array
+    let allCat = [];        //an empty array             //have to filter this array
+
+
     let product = await fetch("https://fakestoreapi.com/products");
+
     let finalproduct = await product.json();        //20 Data elements
     finalproduct.forEach(element => {
         
         //Category Data
-        if(!allCat.includes(element.category)){
-                
+        if(!allCat.includes(element.category))
+        {    
                  CategoryListDiv.innerHTML += `<label>
                                             <input type="checkbox" onclick="categoryFilter()" value="${element.category}"> ${element.category}
                                       </label>`;
@@ -43,7 +46,8 @@ let categoryFilter = ()=>{
     let checkInput = document.querySelectorAll("input[type='checkbox']");
     let checkdata = [];
     checkInput.forEach((element)=>{
-        if(element.checked){
+        if(element.checked)
+        {
             checkdata.push(element.value)
         }
     })
