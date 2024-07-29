@@ -20,7 +20,7 @@ let displayproduct= async (allCheckCat=[])=>{
         }
 
         if(allCheckCat.length==0){
-            allCheckCat=allCat;
+            allCheckCat=allCat; 
         }
         if(allCheckCat.includes(element.category))
         {
@@ -29,9 +29,7 @@ let displayproduct= async (allCheckCat=[])=>{
                 <img src="${element.image}" alt="">
                 <h4>${element.category}</h4>
                 <p>Price Rs ${element.price} | ${element.rating["rate"]}</p>
-                <h3>
-                    ${element.title}
-                </h3>
+                <h3>${element.title}</h3>
             </div>`
         }
         
